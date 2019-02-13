@@ -3,6 +3,7 @@ package com.free.myapps.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -27,6 +28,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.UnsupportedEncodingException;
@@ -65,10 +68,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
     @Bind(R.id.login_form)
-    View mLoginFormView;
+    ScrollView mLoginFormView;
 
     @Bind(R.id.login_progress)
-    View mProgressView;
+    ProgressBar mProgressView;
 
 
 
@@ -91,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //check if user already login previously, directly go to home screen
         if(!Global.getEmail(getApplicationContext()).equals("") && !Global.getPassword(getApplicationContext()).equals("")){
-
+            gotoMainPage();
         }
 
 
@@ -156,11 +159,6 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
     }
 
     /**
@@ -238,7 +236,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
                 saveEmailPass(mEmail,mPassword);
-                finish();
+
             }
         }
 
@@ -253,6 +251,14 @@ public class LoginActivity extends AppCompatActivity {
     private void saveEmailPass(String emails, String passwords){
         Global.editEmail(getApplicationContext(),emails);
         Global.editPassword(getApplicationContext(),encryptPass(passwords));
+        gotoMainPage();
+
+    }
+
+    private void gotoMainPage(){
+        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+        finish();
+        startActivity(i);
     }
 
     //encrypt pass using MD5
