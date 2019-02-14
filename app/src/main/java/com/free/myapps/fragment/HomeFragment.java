@@ -11,12 +11,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.free.myapps.R;
 import com.free.myapps.activity.PageDetailActivity;
-import com.free.myapps.adapter.CustomListMenu;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,7 +29,7 @@ import butterknife.OnClick;
 
 
 public class HomeFragment extends Fragment {
-    @Bind(R.id.imageView3)
+    /*@Bind(R.id.imageView3)
     ImageView imageView3;
 
     @Bind(R.id.imageView4)
@@ -52,13 +57,16 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(getActivity(), PageDetailActivity.class);
         intent.putExtra("index",2);
         startActivity(intent);
-    }
+    }*/
 
-    /*private Integer[] imageDigi= {
+    @Bind(R.id.listmenu)
+    ListView listmenu;
+
+    private Integer[] imageDigi= {
             R.drawable.agumon,
             R.drawable.gabumon,
             R.drawable.tentomon
-    };*/
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,8 +81,26 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
 
-        /*CustomListMenu customListMenu = new CustomListMenu(getActivity(),imageDigi);
-        listmenu.setAdapter(customListMenu);
+
+        List<HashMap<String,String>> aList = new ArrayList<HashMap<String,String>>();
+
+        for(int i=0;i<3;i++){
+            HashMap<String, String> hm = new HashMap<String,String>();
+            hm.put("img", Integer.toString(imageDigi[i]) );
+            aList.add(hm);
+        }
+
+        // Keys used in Hashmap
+        String[] from = { "img"};
+
+        // Ids of views in listview_layout
+        int[] to = { R.id.imgdigis};
+
+        // Instantiating an adapter to store each items
+        // R.layout.listview_layout defines the layout of each item
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(), aList, R.layout.list_main_menu, from, to);
+
+        listmenu.setAdapter(adapter);
         listmenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -84,7 +110,7 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("index",position);
                 startActivity(intent);
             }
-        });*/
+        });
         //return inflater.inflate(R.layout.fragment_home, container, false);
 
 
