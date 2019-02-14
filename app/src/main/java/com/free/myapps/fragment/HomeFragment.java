@@ -7,14 +7,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.free.myapps.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
 public class HomeFragment extends Fragment {
+    @Bind(R.id.imageView3)
+    ImageView imageView3;
 
+    @Bind(R.id.imageView4)
+    ImageView imageView4;
+
+    @Bind(R.id.imageView5)
+    ImageView imageView5;
 
     public HomeFragment() {
         // Required empty public constructor

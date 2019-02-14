@@ -17,7 +17,8 @@ import butterknife.ButterKnife;
 
 
 public class ProfileFragment extends Fragment {
-    @Bind(R.id.txtEmail) TextView txtEmail;
+    @Bind(R.id.txtEmail)
+    TextView txtEmail;
 
 
 
