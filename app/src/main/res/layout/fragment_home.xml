@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:weightSum="6">
+        >
 
         <ImageView
             android:id="@+id/imageView3"
@@ -39,5 +39,10 @@
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:src="@drawable/tentomon" />
+        <!--<ListView
+            android:id="@+id/listmenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />-->
     </LinearLayout>
 </RelativeLayout>

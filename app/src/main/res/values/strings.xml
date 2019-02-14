@@ -19,5 +19,8 @@
     <string name="male">Male</string>
     <string name="phone">08000000</string>
     <string name="name">Jonathan Hindharta</string>
+    <string name="sure_to_quit">Are You Sure Want To Exit ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

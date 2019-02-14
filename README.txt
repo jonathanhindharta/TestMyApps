@@ -18,3 +18,7 @@ https://i.ytimg.com/vi/QbQB41bMI6Q/hqdefault.jpg
 
 https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/b1c6d09d-fab9-4bde-a54d-376d1596c090/dce5hw9-c65527a9-b5ac-4704-93c8-66c397fd9be5.jpg
 
+https://images.sgcafe.net/2016/08/Tentomon.png
+
+https://vignette.wikia.nocookie.net/digimon-adventure5140/images/a/af/Kabuterimon_tri.png/revision/latest?cb=20161222002519
+

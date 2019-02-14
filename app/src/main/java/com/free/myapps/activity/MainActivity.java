@@ -1,10 +1,12 @@
 package com.free.myapps.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        loadFragment(new HomeFragment());
     }
 
 
@@ -76,5 +79,24 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {exitYN();}
+
+    public void exitYN(){
+        AlertDialog.Builder ad=new AlertDialog.Builder(MainActivity.this);
+        ad.setTitle(getApplicationContext().getResources().getString(R.string.app_name));
+        ad.setMessage(getApplicationContext().getResources().getString(R.string.sure_to_quit));
+        ad.setPositiveButton(getApplicationContext().getResources().getString(R.string.yes),
+                new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }});
+        ad.setNegativeButton(getApplicationContext().getResources().getString(R.string.no),
+                new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }});
+        ad.show();
     }
 }

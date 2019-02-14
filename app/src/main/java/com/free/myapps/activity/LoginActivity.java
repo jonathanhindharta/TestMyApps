@@ -3,10 +3,12 @@ package com.free.myapps.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -284,5 +286,25 @@ public class LoginActivity extends AppCompatActivity {
 
         return passsenc;
     }
+
+    @Override
+    public void onBackPressed() {exitYN();}
+
+    public void exitYN(){
+        AlertDialog.Builder ad=new AlertDialog.Builder(LoginActivity.this);
+        ad.setTitle(getApplicationContext().getResources().getString(R.string.app_name));
+        ad.setMessage(getApplicationContext().getResources().getString(R.string.sure_to_quit));
+        ad.setPositiveButton(getApplicationContext().getResources().getString(R.string.yes),
+                new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }});
+        ad.setNegativeButton(getApplicationContext().getResources().getString(R.string.no),
+                new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }});
+        ad.show();
+    }
+
 }
 
